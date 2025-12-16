@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dice Roller App</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #1d2671, #c33764);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px;
+      width: 320px;
+      text-align: center;
+      border-radius: 15px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .dice {
+      font-size: 80px;
+      margin: 20px 0;
+      transition: transform 0.3s ease;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 25px;
+      background: #1d2671;
+      color: #fff;
+      cursor: pointer;
+      
+    }
+
+    button:hover {
+      background: #c33764;
+    }
+
+    .result {
+      margin-top: 15px;
+      font-size: 18px;
+      color: #444;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h2>🎲 Dice Roller</h2>
+
+    <div id="dice" class="dice">⚀</div>
+
+    <button onclick="rollDice()">Roll Dice</button>
+
+    <div class="result" id="result">Result: 1</div>
+  </div>
+
+  <script>
+    function rollDice() {
+      let randomNumber = Math.floor(Math.random() * 6) + 1;
+
+      let dice = document.getElementById("dice");
+      let result = document.getElementById("result");
+
+      dice.style.transform = "rotate(360deg)";
+
+      if (randomNumber === 1) {
+        dice.textContent = "⚀";
+      } else if (randomNumber === 2) {
+        dice.textContent = "⚁";
+      } else if (randomNumber === 3) {
+        dice.textContent = "⚂";
+      } else if (randomNumber === 4) {
+        dice.textContent = "⚃";
+      } else if (randomNumber === 5) {
+        dice.textContent = "⚄";
+      } else {
+        dice.textContent = "⚅";
+      }
+
+      result.textContent = "Result: " + randomNumber;
+
+      
+    }
+  </script>
+
+</body>
+</html>
